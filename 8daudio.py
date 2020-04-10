@@ -4,9 +4,15 @@ from time import sleep
 
 print("8D AUDIO CONVERTER FOR MP3s ~by WinterSoldier\n\n Contact the developer @_neural.network_ (Insta) for any help")
 print("Make sure that you have 'ffmpeg' folder placed in the same directory\n\n")
-print("Please place the song in the same folder as this application and rename it to 'test'\n\n\n")
-input('Hit enter when done\n\n')
-sound = AudioSegment.from_mp3("test.mp3")
+
+# allow user input of song in mp3 from any folder on computer 
+root = Tk()
+root.filename =  filedialog.askopenfilename( initialdir = "/",
+                                                title = "Select mp3 file to convert",
+                                                filetypes = ( ( "mp3 files","*.mp3" ),( "all files","*.*" ) ) )
+print(root.filename)
+
+sound = AudioSegment.from_mp3(root.filename)
 
 
 
